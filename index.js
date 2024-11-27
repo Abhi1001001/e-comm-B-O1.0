@@ -52,7 +52,7 @@ app.post("/login", async (req, res) => {
 });
 
 // get methode for getting bestseller products from database (verifying token) ------->
-app.get("/bestseller", verifyToken, async (req, res) => {
+app.get("/bestseller", async (req, res) => {
   const result = await Products.find();
   res.send(result)
 });

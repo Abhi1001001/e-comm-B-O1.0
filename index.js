@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require("express");
 const cors = require("cors");
 require("./database/config");
@@ -6,6 +7,8 @@ const Products = require("./database/products");
 const Jwt = require("jsonwebtoken");
 const jwtkey = "e-comm";
 const app = express();
+
+const PORT = process.env.PORT
 
 
 app.use(cors());
@@ -94,4 +97,4 @@ function verifyToken(req, res, next){
     res.status(403).send({result : "please add token with header"});
   }
 }
-app.listen(5000);
+app.listen(PORT);
